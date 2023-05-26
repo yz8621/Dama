@@ -1,0 +1,268 @@
+<!-- In HTML Comments are written like this -->
+<!-- They can all be removed for your apps -->
+
+<!doctype html> <!-- This first line tells browsers to expect modern standard html 5 -->
+<html lang="en-gb"> <!-- This is indicates the page is written in British English, useful for accessibility -->
+<meta charset="utf-8"> <!-- This indicates how the file is encoded. utf-8 is standard -->
+<title>Dama</title> <!-- All pages need a title, this will be displayed in the browser's title bar -->
+<link id="stylesheet" rel="stylesheet" href="default.css"> <!-- Import style sheet – default.css -->
+<link rel="icon" href="./assets/favicon.png"> <!-- Import 'Favorites Icon' – favicon.png -->
+<script type="module" src="main.js"></script> <!-- Load the main script. Must be type="module". Have only one of these -->
+
+
+<body>
+    <div class="container" id="container" role="main">
+        <div class="header">
+            <ul class="bar">
+                <li class="tabs"><a href="./">Dama</a></li>
+                <li class="tabs"><a href="/docs/">API Documentation</a></li>
+                <li class="tabs"><a id="Tutorial">Tutorial</a></li>
+                <li class="tabs"><a id="History" href="./history.html">History</a></li>
+                <li class="tabs"><a href="./about.html">About</a></li>
+              </ul>
+        </div>
+
+        <div class="illustration">
+            <h1>Hint</h1>
+            <div id="helperText">Press on Tutorial for Dama Instructions
+                <div><strong>Or</strong> Press on a highlighted piece to Start</div>
+            </div>
+            
+        </div>
+
+        <div class="wrap" id="wrap">
+
+            <div id="game_board"></div>
+            
+            <div class="game_stuff">
+
+                <div class="player1" id="player1">
+                    <table>
+                        <tr>
+                            <input class="playerName" id="home_name" aria-label="Home player name" value="Player 1">
+                            <td><div class="playerIcon" id="p1Icon"></div></td>
+                            <td>
+                                <table class="stats">
+                                    <tr><td><div class="wins" id="p1Wins">0 Wins</div></td></tr>
+                                    <tr><td><div class="losses" id="p1Losses">0 Losses</div></td></tr>
+                                    <tr><td><div class="draws" id="p1Draws">0 Draws</div></td></tr>
+                                </table>
+                            </td>
+                            <td>
+                                <table>
+                                    <tr><td><div class="takeBack" id="p1Takeback">Take Back</div></td></tr>
+                                    <tr><td><div class="draw" id="p1reqDraw">Draw</div></td></tr>
+                                    <tr><td><div class="resign" id="p1Resign">Resign</div></td></tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+            
+                </div>
+
+                <div class="game_moves">
+                    <nav>
+                        <ul class="moves" id="moves" tabindex="0">
+                            <li>Game Moves</li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="player2" id="player2">
+                    <table>
+                        <tr>
+                            <input class="playerName" id="away_name" aria-label="Away player name" value="Player 2">
+                            <td><div class="playerIcon" id="p2Icon" ></div></td>
+                            <td>
+                                <table class="stats">
+                                    <tr><td><div class="wins" id="p2Wins">0 Wins</div></td></tr>
+                                    <tr><td><div class="losses" id="p2Losses">0 Losses</div></td></tr>
+                                    <tr><td><div class="draws" id="p2Draws">0 Draws</div></td></tr>
+                                </table>
+                            </td>
+                            <td>
+                                <table>
+                                    <tr><td><div class="takeBack" id="p2Takeback">Take Back</div></td></tr>
+                                    <tr><td><div class="draw" id="p2reqDraw">Draw</div></td></tr>
+                                    <tr><td><div class="resign" id="p2Resign">Resign</div></td></tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<dialog id="result_dialog" tabindex="0" aria-label="Winner declaration">
+    <h2>DAMA</h2>
+    <div id="result_message">Congratulations!</div>
+    <div id="result_winner">Player wins!</div>
+</dialog>
+
+<dialog id="moreThanOneMatch">
+    <h3>Select a Path:</h3>
+    <div id="pathsToChoose"></div>
+</dialog>
+
+<dialog id="chooseIcon" class="chooseIcon">
+    <h4>Select an Image for Your Player Picture:</h4>
+    <table>
+        <tr>
+            <td><div class="iconImage" id="abu"><img src="./assets/abu.JPG" alt="abu"></div></td>
+            <td><div class="iconImage" id="pascal"><img src="./assets/pascal.jpg" alt="pascal"></div></td>
+            <td><div class="iconImage" id="stitch"><img src="./assets/stitch.JPG" alt="stitch" ></div></td>
+        </tr>
+        <tr>
+            <td><div class="iconImage" id="zazu"><img src="./assets/zazu.JPG" alt="zazu" ></div></td>
+            <td><div class="iconImage" id="sebastian"><img src="./assets/sebastian.JPG" alt="sebastian" ></div></td>
+            <td><div class="iconImage" id="mushu"><img src="./assets/mushu.jpg" alt="mushu" ></div></td>
+        </tr>
+        <tr>
+            <td><div class="iconImage" id="maximus"><img src="./assets/maximus.jpg" alt="maximus"></div></td>
+            <td><div class="iconImage" id="spiderman"><img src="./assets/sm.jpg" alt="spiderman" ></div></td>
+            <td><div class="iconImage" id="moonknight"><img src="./assets/mk.JPG" alt="moonknight"></div></td>
+        </tr>
+    </table>
+</dialog>
+
+<!--Tutorial HTML-->
+
+<dialog class="starterMessage" id="starterMessage">
+    <h5>Welcome to the Dama Tutorial!</h5>
+    <div>To move along, click anywhere on the screen</div>
+    <div>To exit tutorial, press ESC at any point</div>
+</dialog>
+
+<dialog class="topBar" id="topBar">
+    <h6>Taskbar</h6>
+    <div>Here we have four pages to select from:</div>
+    <div>◉     <strong>Dama</strong> - The game page</div>
+    <div>◉     <strong>API Documentation</strong> - Code API</div>
+    <div>◉     <strong>Tutorial</strong> - The one you clicked a bit ago</div>
+    <div>◉     <strong>About</strong> - Background information and Dama game instructions</div>
+</dialog>
+
+<dialog class="explainIcon" id="explainIcon">
+    <h6>Player Icons</h6>
+    <div>Each player's icon is customizable by first clicking on the circle,
+        then choosing an image from the provided ones.
+    </div>
+    <div>When it is your turn, your icon will be highlighted in green.</div>
+
+    <h6>Player Names</h6>
+    <div>You can also change your player name by simply inputing
+         your preferred one in place of "Player 1" or "Player 2"</div>
+</dialog>
+
+<dialog class="explainTakeBack" id="explainTakeBack">
+    <h6>Take Back</h6>
+    <div>If you made a move you regret, you can send a request to the other player to take it back. 
+        If they confirm "OK", the board is reverted to it previous state and you can take your turn again.
+        If not, well... Good luck.
+    </div>
+</dialog>
+
+<dialog class="explainDraw" id="explainDraw">
+    <h6>Draw</h6>
+    <div>Another request you can make is to draw. If you're in a sticky position, you can send a request 
+        to the other player to end the game with a draw. They can either accept or decline. 
+    </div>
+</dialog>
+
+<dialog class="explainResign" id="explainResign">
+    <h6>Resign</h6>
+    <div>In case you find yourself in a losing situation and you want to save yourself the trouble
+         of actually losing, you can resign. This will let the other opponent win and end the game.
+    </div>
+</dialog>
+
+<dialog class="explainWins" id="explainWins">
+    <h6>Wins, Losses, Draws</h6>
+    <div>A table next to each player's icon shows their current game statistics.
+         This includes how many times they won, lost, and ended with a draw.
+    </div>
+</dialog>
+
+<dialog class="explainMoveEncode" id="explainMoveEncode">
+    <h6>Game Moves</h6>
+    <div>During the game, here is where each move is written down for both players to see. 
+        Each move starts with the player, then a series of indeces from start position to end position of the piece.
+        You can use this to your advantage when deciding on your next moves.
+    </div>
+    <div>
+        The <strong>History</strong> feature is yet to come in DE_Dama v.0.0.2. Press to go to the <strong>History</strong> page.
+    </div>
+</dialog>
+
+<dialog class="explainHelperText" id="explainHelperText">
+    <h6>Game State</h6>
+    <div>Here you will see a message saying whose turn it is, and what their next decision should be
+        (choosing a piece to move or choosing a target position to move to).
+    </div>
+    <div>Note that there is no helper text for a narrow window.</div> 
+</dialog>
+
+<dialog class="AimofTheGame" id="AimofTheGame">
+    <h6>Aim of the Game</h6>
+    <div>The aim of the game is to capture (jump over) all your opponent's pieces.</div>
+    <div>Each piece can only move orthogonally forward, right, and left. To capture as many
+         pieces as you can, you can strategize and try to eat multiple pieces in one jump. (You can only
+         jump if there is an empty spot after a single piece).
+    </div>
+    <div>If your piece is a queen, you can also move orthogonally backwards. Queens come with
+         the advantage of being able to move more than one space at a time (if the path is clear).
+    </div>
+    <div>To become a Queen, your piece must reach the last opposing row.</div>
+</dialog>
+
+<dialog class="explainMovePiece" id="explainMovePiece">
+    <h6>How to Play</h6>
+    <h5>Select a Piece to Move</h5>
+    <div>Moveable pieces are highlighted in purple at the start of every turn. 
+        If there is a path you are forced to take (for example, you have to jump over an opponent's piece),
+        then that path will be highlighted for you by changing the background color of the cells on that path.
+    </div>
+    <div>To make a move, first click on the moveable piece (purple border). This will focus on that cell
+         (border colour becomes darker) and show you available target positions to move to.
+    </div>
+</dialog>
+
+<dialog class="explainTargetPiece" id="explainTargetPiece">
+    <h6>How to Play</h6>
+    <h5>Select a Target Spot</h5>
+    <div>Once you've selected a piece to move, now you need to select one of the legal positions to move to. 
+        These are bordered in red.
+    </div>
+    <div>After selecting the target position, your turn ends and becomes your opponent's turn.</div>
+</dialog>
+
+<dialog class="explainResize" id="explainResize">
+    <h6>Resize the Window</h6>
+    <div>In case you need to resize your window and make it smaller, this webpage is compatible with
+         both wide and narrow screens. Your player stats and game moves will move below the board and 
+         you can still play.
+    </div>
+    <div>Try it out!</div>
+</dialog>
+
+<dialog class="explainNavigation" id="explainNavigation">
+    <h6>Gameboard Navigation</h6>
+    <div>To navigate on the game board and select your pieces, you can either click with your cursor or use your keyboard.</div>
+    <div>For keyboard access, first tab to any element on the main Dama display (e.g. your player icon or a gameboard cell), then either:</div>
+    <div>◉ Type the cell index you want to go to (e.g. a1)</div>
+    <div>◉ Use the arrow keys to move around the board (only works if you're already focused on a gameboard cell)</div>
+    <div>To select the cell/piece, press Enter or Space.</div>
+</dialog>
+
+<dialog class="referToAbout" id="referToAbout">
+    <div>For more information about the game, refer to the <strong>About</strong> page.</div>
+</dialog>
+
+<dialog class="endTutorialMessage" id="endTutorialMessage">
+    <div><strong>Good Luck!</strong></div>
+</dialog>
+
+</html>
+
