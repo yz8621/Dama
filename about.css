@@ -1,0 +1,130 @@
+
+body {
+    margin:auto;
+    background: rgb(41, 37, 33);
+}
+
+
+.container {
+    position: fixed;
+    margin: auto;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    font-size: 10px;
+
+}
+
+.header {
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-size: large;
+    font-variant-caps: small-caps;
+    position: absolute;
+    
+    top: 0;
+    height: fit-content;
+    width: 100%;
+    left: 0;
+}
+
+.bar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height:fit-content;
+    background-color: #333333;
+}
+
+.tabs {
+    float: left;
+    list-style-type: none;
+}
+
+.tabs a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111111;
+}
+
+a {
+    font-style: italic;
+    font-weight: bold;
+}
+
+h1 {
+    top: 60px;
+    position: relative;
+    font-size: xx-large;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.about_dama {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+
+    top: 60px;
+
+    position: relative;
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+
+    height: 100%;
+}
+
+.wikiDama {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    font-size: x-small;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(233, 184, 94);
+    text-align: center;
+    text-decoration: underline;
+
+    bottom: 10px;
+}
+
+.headingTable {
+    top: 20px;
+    position: relative;
+    font-size: xx-large;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Queen1Image {
+    position: sticky;
+    top: 20px;
+    color:white;
+    font-size: 100px;
+    padding-right: 100px;
+    transform: rotate(-40deg);
+}
+
+.Queen2Image {
+    position: sticky;
+    top: 20px;
+    color:white;
+    font-size: 100px;
+    padding-left: 100px;
+    transform: rotate(40deg);
+}
