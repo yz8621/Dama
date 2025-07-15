@@ -1,4 +1,4 @@
-import R from "../../common/ramda.js";
+import R from "../common/ramda.js";
 import Dama from "../common/dama.js";
 import Json_rpc from "../Json_rpc.js";
 import Actions from "./player.js";
