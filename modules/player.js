@@ -1,4 +1,4 @@
-import R from "../../common/ramda.js";
+import R from "../common/ramda.js";
 import Board from "./board.js";
 import Json_rpc from "../Json_rpc.js";
 
