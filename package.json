@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "description": "",
-  "main": "./index.html",
+  "main": "server/server.js",
   "author": "",
   "license": "ISC",
   "devDependencies": {
