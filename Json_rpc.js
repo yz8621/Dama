@@ -6,6 +6,8 @@
  * @author Yasmin Zaraket
  * @version 2021/22
  */
+
+/*
 const Json_rpc = Object.create(null);
 
 const fetch = window.fetch;
@@ -23,6 +25,8 @@ let json_rpc_id = 0;
  * @returns {function} A function that represents a server-side function
  *   and returns a promise of its returned value.
  */
+
+/*
 Json_rpc.method = function (method_name) {
     return function (...params) {
 
@@ -40,6 +44,44 @@ Json_rpc.method = function (method_name) {
                 "Content-Type": "application/json"
             }
         }).then(json).then((response_object) => response_object.result);
+    };
+};
+
+export default Object.freeze(Json_rpc);
+*/
+
+import Stats4 from "./server/Stats4.js"; // Adjust path if needed
+
+const Json_rpc = Object.create(null);
+
+let json_rpc_id = 0;
+
+/**
+ * Register a function name to make procedure calls to,
+ * as if the function was remote, returning a Promise of its result.
+ * @memberof Json_rpc
+ * @function
+ * @param {string} method_name The name of the method to call
+ * @returns {function} A function that returns a promise of the result
+ */
+Json_rpc.method = function (method_name) {
+    return function (...params) {
+        return new Promise((resolve, reject) => {
+            try {
+                const result = Stats4[method_name](...params);
+                resolve(result);
+            } catch (error) {
+                reject({
+                    jsonrpc: "2.0",
+                    error: {
+                        code: 0,
+                        message: error.message,
+                        data: error.stack
+                    },
+                    id: json_rpc_id++
+                });
+            }
+        });
     };
 };
 
