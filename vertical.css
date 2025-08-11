@@ -360,7 +360,7 @@ div .takeBack:hover {
 #result_dialog::backdrop
 {
     backdrop-filter: blur(2px);
-    background-image: url("/assets/confetti.gif");
+    background-image: url("./assets/confetti.gif");
 }
 
 #result_dialog h2
@@ -617,4 +617,5 @@ h6 {
     text-align: center;
     padding: 30px;
     font-size: xx-large;
+
 }
