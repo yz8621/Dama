@@ -79,7 +79,7 @@ h1 {
 .illustration {
     position: absolute;
     left: 10px;
-    width: 215px;
+    width: fit-content;
     top: 60px;
     height: 89%;
 
