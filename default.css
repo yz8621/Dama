@@ -88,7 +88,7 @@ h1 {
 
 #helperText {
     position: absolute;
-    width: min-content;
+    width: fit-content;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     font-size: 18px;
